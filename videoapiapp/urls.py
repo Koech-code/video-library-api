@@ -5,6 +5,7 @@ from . import views
 
 urlpatterns=[
     path('home/', views.allvideos.as_view()),
+    path('comment/', views.commentvideos.as_view()),
 ]
 
 if settings.DEBUG:
