@@ -10,8 +10,8 @@ class video(models.Model):
         return self.name
 
 class comments(models.Model):
-    visitorspost = models.ForeignKey(video, related_name='comment', on_delete=models.CASCADE, null=True)
-    visitorscomment = models.CharField(max_length=275, null=True)
+    visitorspost = models.ForeignKey(video, related_name='comment', on_delete=models.CASCADE, null=False)
+    visitorscomment = models.CharField(max_length=275, null=False)
     status = models.BooleanField(default=True)
     def __str__(self):
         return self.visitorscomment
