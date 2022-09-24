@@ -28,8 +28,8 @@ class allvideos(APIView):
             status=status.HTTP_400_BAD_REQUEST)
 
 class commentvideos(APIView):
-    def get(self, request):
-        commentedvideos = comments.objects.all()
+    def get(self, request, pk):
+        commentedvideos = comments.objects.filter(visitorspost_id=pk)
         serializer = CommentSerializer(commentedvideos, many=True)
 
         return Response(serializer.data)
