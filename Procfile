@@ -1,1 +1,1 @@
-web: gunicorn videoapiproject.wsgi:videoapiapp
+web: gunicorn videoapiproject.wsgi:application
