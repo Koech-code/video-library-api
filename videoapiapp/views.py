@@ -10,6 +10,10 @@ from rest_framework.parsers import MultiPartParser, FormParser
 class allvideos(APIView):
     parse_classes = (MultiPartParser, FormParser)
     def get(self, request):
+        if request.method == 'GET':
+            """
+            Get the players who follow this player
+            """
         postedvideos = video.objects.all()
         serializer = VideoSerializer(postedvideos, many=True)
 
@@ -28,6 +32,9 @@ class allvideos(APIView):
             status=status.HTTP_400_BAD_REQUEST)
 
 class commentvideos(APIView):
+    """
+    Return a list of all the uploaded videos.
+    """
     def get(self, request, pk):
         commentedvideos = comments.objects.filter(visitorspost_id=pk)
         serializer = CommentSerializer(commentedvideos, many=True)
